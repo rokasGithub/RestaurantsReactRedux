@@ -26,7 +26,7 @@ class SharedButton extends Component {
     return (
       <div className='search'>
         <form id='searchForm' onSubmit={this.fetch}>
-          <label htmlFor='searchInput'>Search</label>
+          <label htmlFor='searchInput'></label>
           <input
             className='searchTerm'
             id='searchInput'
