@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './styles.scss';
 
 class Headline extends Component {
@@ -20,7 +19,5 @@ class Headline extends Component {
     );
   }
 }
-
-Headline.propTypes = {};
 
 export default Headline;

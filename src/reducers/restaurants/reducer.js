@@ -1,9 +1,8 @@
-import { types } from './../../actions/types';
-import { type } from 'os';
+import { types } from '../../actions/types';
 
 const initialState = {
   text: '',
-  posts: [],
+  restaurants: [],
   loading: false,
   error: '',
 };
@@ -15,13 +14,13 @@ export default (state = initialState, action) => {
     case types.SEARCH_MOVIE:
       return {
         ...state,
-        text: action.payload,
+        text: payload,
         loading: false,
       };
-    case types.GET_POSTS:
+    case types.GET_RESTAURANTS:
       return {
         ...state,
-        posts: action.payload,
+        restaurants: payload,
         loading: false,
       };
     case types.LOADING:
@@ -29,10 +28,10 @@ export default (state = initialState, action) => {
         ...state,
         loading: true,
       };
-    case types.POST_ERROR:
+    case types.RESTAURANT_ERROR:
       return {
         ...state,
-        error: action.payload,
+        error: payload,
         loading: false,
       };
     default:

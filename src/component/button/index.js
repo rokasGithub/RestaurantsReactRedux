@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovie, setLoading, fetchPosts } from '../../actions';
+import { searchMovie, setLoading, fetchRestaurants } from '../../actions';
 import './styles.scss';
 
 class SharedButton extends Component {
@@ -12,7 +11,7 @@ class SharedButton extends Component {
 
   fetch(event) {
     event.preventDefault();
-    this.props.fetchPosts(this.props.text);
+    this.props.fetchRestaurants(this.props.text);
     this.props.setLoading();
   }
 
@@ -21,8 +20,6 @@ class SharedButton extends Component {
   };
 
   render() {
-    const { buttonText } = this.props;
-
     return (
       <div className='search'>
         <form id='searchForm' onSubmit={this.fetch}>
@@ -50,18 +47,13 @@ class SharedButton extends Component {
   }
 }
 
-SharedButton.propTypes = {
-  buttonText: PropTypes.string,
-  emitEvent: PropTypes.func,
-};
-
 const mapStateToProps = (state) => ({
-  text: state.postsReducer.text,
+  text: state.restaurantsReducer.text,
 });
 
 //export default SharedButton;
 export default connect(mapStateToProps, {
   searchMovie,
   setLoading,
-  fetchPosts,
+  fetchRestaurants,
 })(SharedButton);
