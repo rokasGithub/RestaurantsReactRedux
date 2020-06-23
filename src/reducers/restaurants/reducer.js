@@ -11,7 +11,7 @@ export default (state = initialState, action) => {
   const { type, payload } = action;
 
   switch (type) {
-    case types.SEARCH_MOVIE:
+    case types.SEARCH_RESTAURANT:
       return {
         ...state,
         text: payload,
@@ -33,6 +33,7 @@ export default (state = initialState, action) => {
         ...state,
         error: payload,
         loading: false,
+        restaurants: [],
       };
     default:
       return state;

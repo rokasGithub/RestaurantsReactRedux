@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { searchMovie, setLoading, fetchRestaurants } from '../../actions';
+import { searchRestaurant, setLoading, fetchRestaurants } from '../../actions';
 import './styles.scss';
 
 class SharedButton extends Component {
@@ -16,7 +16,8 @@ class SharedButton extends Component {
   }
 
   onChange = (e) => {
-    this.props.searchMovie(e.target.value);
+    console.log(e.target.value + '    jaammge');
+    this.props.searchRestaurant(e.target.value);
   };
 
   render() {
@@ -53,7 +54,7 @@ const mapStateToProps = (state) => ({
 
 //export default SharedButton;
 export default connect(mapStateToProps, {
-  searchMovie,
+  searchRestaurant,
   setLoading,
   fetchRestaurants,
 })(SharedButton);

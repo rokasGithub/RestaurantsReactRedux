@@ -5,7 +5,7 @@ export const fetchRestaurants = (text) => async (dispatch) => {
   const defaultValue = text === '' ? '' : text;
   try {
     const res = await axios.get(
-      `http://opentable.herokuapp.com/api/restaurants?city=${defaultValue}`
+      `https://opentable.herokuapp.com/api/restaurants?city=${defaultValue}`
     );
 
     if (
@@ -17,6 +17,13 @@ export const fetchRestaurants = (text) => async (dispatch) => {
         payload: 'No restaurants found!',
       });
     } else {
+      console.log(res.data.restaurants[0].city.toLowerCase());
+      console.log(text.toLowerCase());
+      console.log('is here');
+      console.log(
+        text.toLowerCase() === res.data.restaurants[0].city.toLowerCase()
+      );
+
       dispatch({
         type: types.GET_RESTAURANTS,
         payload: res.data.restaurants,
@@ -30,9 +37,9 @@ export const fetchRestaurants = (text) => async (dispatch) => {
   }
 };
 
-export const searchMovie = (text) => (dispatch) => {
+export const searchRestaurant = (text) => (dispatch) => {
   dispatch({
-    type: types.SEARCH_MOVIE,
+    type: types.SEARCH_RESTAURANT,
     payload: text,
   });
 };
