@@ -61,7 +61,7 @@ main {
 
 /*Responsive flex main content */
 
-#catContainer {
+#restaurantContainer {
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
@@ -76,4 +76,5 @@ main {
   font-size: 1.2em;
   font-weight: bold;
   color: orange;
+  padding: 5px;
 }

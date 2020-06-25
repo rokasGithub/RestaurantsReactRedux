@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './styles.scss';
+import PropTypes from 'prop-types';
 
 class ListItem extends Component {
   render() {
@@ -20,5 +21,9 @@ class ListItem extends Component {
     );
   }
 }
+
+ListItem.propTypes = {
+  restaurant: PropTypes.object,
+};
 
 export default ListItem;

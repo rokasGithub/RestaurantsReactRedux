@@ -5,6 +5,7 @@ const initialState = {
   restaurants: [],
   loading: false,
   error: '',
+  searchName: '',
 };
 
 export default (state = initialState, action) => {
@@ -16,6 +17,11 @@ export default (state = initialState, action) => {
         ...state,
         text: payload,
         loading: false,
+      };
+    case types.SEARCH_RESTAURANT_NAME:
+      return {
+        ...state,
+        searchName: payload,
       };
     case types.GET_RESTAURANTS:
       return {

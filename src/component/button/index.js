@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { searchRestaurant, setLoading, fetchRestaurants } from '../../actions';
 import './styles.scss';
+import PropTypes from 'prop-types';
 
 class SharedButton extends Component {
   constructor(props) {
@@ -16,7 +17,6 @@ class SharedButton extends Component {
   }
 
   onChange = (e) => {
-    console.log(e.target.value + '    jaammge');
     this.props.searchRestaurant(e.target.value);
   };
 
@@ -48,11 +48,15 @@ class SharedButton extends Component {
   }
 }
 
+SharedButton.propTypes = {
+  header: PropTypes.string,
+  desc: PropTypes.string,
+};
+
 const mapStateToProps = (state) => ({
   text: state.restaurantsReducer.text,
 });
 
-//export default SharedButton;
 export default connect(mapStateToProps, {
   searchRestaurant,
   setLoading,

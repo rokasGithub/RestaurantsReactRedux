@@ -1,16 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Headline from './component/headline';
 import SharedButton from './component/button';
-import ListItem from './component/listItem';
+import Restaurants from './component/restaurants';
 import { connect } from 'react-redux';
-import { fetchRestaurants } from './actions';
+import { searchRestaurantName } from './actions';
 import './app.scss';
 import Spinner from './component/shared/Spinner';
 
 class App extends Component {
   render() {
     const { restaurants, loading, error } = this.props;
-
     return (
       <div id='content' className='App' data-test='appComponent'>
         <nav>
@@ -29,17 +28,9 @@ class App extends Component {
             {loading ? (
               <Spinner />
             ) : restaurants.length > 0 ? (
-              <div id='catContainer'>
-                {restaurants.map((restaurant, index) => {
-                  const { name, address, price } = restaurant;
-                  const configListItem = {
-                    name,
-                    address,
-                    price,
-                  };
-                  return <ListItem key={index} {...configListItem} />;
-                })}
-              </div>
+              <Fragment>
+                <Restaurants restaurants={restaurants} />
+              </Fragment>
             ) : error !== '' ? (
               <p className='warningInfo'>No restaurants found</p>
             ) : (
@@ -60,4 +51,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchRestaurants })(App);
+export default connect(mapStateToProps, {
+  searchRestaurantName,
+})(App);

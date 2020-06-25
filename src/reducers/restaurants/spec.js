@@ -8,6 +8,7 @@ describe('restaurants Reducer', () => {
       restaurants: [],
       loading: false,
       error: '',
+      searchName: '',
     };
     const newState = restaurantsReducer(undefined, {});
     expect(newState).toEqual(initialState);
@@ -19,6 +20,7 @@ describe('restaurants Reducer', () => {
       restaurants: [{ body: 'Some Text', title: 'Example title 1' }],
       text: '',
       error: '',
+      searchName: '',
     };
     const newState = restaurantsReducer(undefined, {
       type: types.GET_RESTAURANTS,
