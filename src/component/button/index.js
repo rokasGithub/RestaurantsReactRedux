@@ -23,22 +23,20 @@ class SharedButton extends Component {
   render() {
     return (
       <div className='search'>
-        <form id='searchForm' onSubmit={this.fetch}>
+        <form className='example' id='searchForm' onSubmit={this.fetch}>
           <label htmlFor='searchInput'></label>
           <input
-            className='searchTerm'
-            id='searchInput'
-            type='text'
             name='searchText'
-            placeholder='Search for restaurants...'
+            type='text'
+            placeholder='Search for restaurants'
+            className='search2'
             onChange={this.onChange}
           />
-
           <button
+            aria-label='Center Align'
             data-test='buttonComponent'
             type='submit'
             className='searchButton'
-            aria-label='Center Align'
           >
             <i className='fa fa-search'></i>
           </button>

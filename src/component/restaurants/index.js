@@ -42,14 +42,17 @@ class Restaurants extends Component {
         <label className='headline-button' htmlFor='filterInput'>
           Filter restaurant by name
         </label>
-        <input
-          className='searchTerm'
-          id='searchNameInput'
-          type='text'
-          name='searchText'
-          placeholder='Search by name...'
-          onChange={this.handleChange}
-        />
+        <form className='example'>
+          <label htmlFor='searchInput'></label>
+          <input
+            name='searchText'
+            type='text'
+            id='searchNameInput'
+            placeholder='Search restaurants'
+            className='search2 searchTerm'
+            onChange={this.handleChange}
+          />
+        </form>
 
         <div id='restaurantContainer'>
           {this.state.restaurants.map((restaurant, index) => {

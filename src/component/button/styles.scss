@@ -1,20 +1,32 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
-#searchInput {
-  height: 4.2vh;
-  border: 1px solid #0095f6;
-  border-radius: 5px 0 0 5px;
+
+form.example input[type='text'] {
+  padding: 8px;
+  font-size: 20px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
+
+form.example button {
+  float: left;
+  width: 20%;
+  padding: 8px;
+  background: #2196f3;
+  color: white;
+  font-size: 20px;
+  border: 1px solid grey;
+  border-left: none;
   cursor: pointer;
 }
 
-.searchButton {
-  height: 1.6em;
-  border: 1px solid #0095f6;
-  background: #0095f6;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 1.2em;
-  padding-bottom: 10px;
-  padding-right: 5px;
+form.example button:hover {
+  background: #0b7dda;
+}
+
+form.example::after {
+  content: '';
+  clear: both;
+  display: table;
 }
