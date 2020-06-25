@@ -74,7 +74,7 @@ class Restaurants extends Component {
 }
 
 Restaurants.propTypes = {
-  restaurants: PropTypes.object,
+  restaurants: PropTypes.array,
 };
 
 const mapStateToProps = (state) => ({
