@@ -77,7 +77,7 @@ class Restaurants extends Component {
         </div>
 
         {this.state.restaurants.length === 0 && (
-          <span className='warningInfo'>No restourant found.</span>
+          <span className='warningInfo'>No restourant found</span>
         )}
       </Fragment>
     );
