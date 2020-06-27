@@ -1,36 +1,24 @@
 .headline-button {
   padding-bottom: 10px;
   padding-top: 10px;
+  font-weight: bold;
   text-align: center;
+  display: block;
 }
 
-form.example input[type='text'] {
-  padding: 8px;
-  font-size: 20px;
-  border: 1px solid grey;
-  float: left;
-  width: 80%;
-  background: #f1f1f1;
+form.search-restaurant-form input[type='text'] {
+  padding: 7px;
+  font-size: 16px;
+  outline: none;
+  width: 70%;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ and Edge */
+  user-select: none; /* Standard syntax */
 }
 
-form.example button {
-  float: left;
-  width: 20%;
-  padding: 8px;
-  background: #2196f3;
-  color: white;
-  font-size: 20px;
-  border: 1px solid grey;
-  border-left: none;
-  cursor: pointer;
-}
-
-form.example button:hover {
-  background: #0b7dda;
-}
-
-form.example::after {
-  content: '';
-  clear: both;
-  display: table;
+#restaurantSearch {
+  display: flex;
+  text-align: center;
+  align-content: center;
+  justify-content: space-around;
 }

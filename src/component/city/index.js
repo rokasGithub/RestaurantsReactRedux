@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { searchRestaurant, setLoading, fetchRestaurants } from '../../actions';
 import './styles.scss';
-import PropTypes from 'prop-types';
 
-class SharedButton extends Component {
+class City extends Component {
   constructor(props) {
     super(props);
     this.fetch = this.fetch.bind(this);
@@ -16,40 +15,39 @@ class SharedButton extends Component {
     this.props.setLoading();
   }
 
-  onChange = (e) => {
-    this.props.searchRestaurant(e.target.value);
+  onChange = (event) => {
+    this.props.searchRestaurant(event.target.value);
   };
 
   render() {
     return (
-      <div className='search'>
-        <form className='example' id='searchForm' onSubmit={this.fetch}>
+      <Fragment>
+        <form
+          className='search-city-form'
+          data-test='FormComponent'
+          id='searchForm'
+          onSubmit={this.fetch}
+        >
           <label htmlFor='searchInput'></label>
           <input
+            data-test='InputSearch'
             name='searchText'
             type='text'
             placeholder='Search for restaurants'
-            className='search2'
             onChange={this.onChange}
           />
           <button
             aria-label='Center Align'
-            data-test='buttonComponent'
+            data-test='ButtonComponent'
             type='submit'
-            className='searchButton'
           >
             <i className='fa fa-search'></i>
           </button>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }
-
-SharedButton.propTypes = {
-  header: PropTypes.string,
-  desc: PropTypes.string,
-};
 
 const mapStateToProps = (state) => ({
   text: state.restaurantsReducer.text,
@@ -59,4 +57,4 @@ export default connect(mapStateToProps, {
   searchRestaurant,
   setLoading,
   fetchRestaurants,
-})(SharedButton);
+})(City);

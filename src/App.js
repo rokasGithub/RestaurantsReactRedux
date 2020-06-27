@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Headline from './component/headline';
-import SharedButton from './component/button';
+import City from './component/city';
 import Restaurants from './component/restaurants';
 import { connect } from 'react-redux';
 import { searchRestaurantName } from './actions';
@@ -14,7 +14,7 @@ class App extends Component {
       <div id='content' className='App' data-test='appComponent'>
         <nav>
           <div id='header'>
-            <SharedButton />
+            <City />
           </div>
         </nav>
         <main>

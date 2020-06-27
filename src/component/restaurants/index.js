@@ -11,6 +11,7 @@ class Restaurants extends Component {
     this.state = { restaurants: this.props.restaurants };
     this.handleChange = this.handleChange.bind(this);
     this.filterRestaurants = this.filterRestaurants.bind(this);
+    this.preventDefaultSubmit = this.preventDefaultSubmit.bind(this);
   }
 
   handleChange(e) {
@@ -36,23 +37,32 @@ class Restaurants extends Component {
     }
   }
 
+  preventDefaultSubmit(event) {
+    event.preventDefault();
+  }
+
   render() {
     return (
       <Fragment>
-        <label className='headline-button' htmlFor='filterInput'>
-          Filter restaurant by name
-        </label>
-        <form className='example'>
-          <label htmlFor='searchInput'></label>
-          <input
-            name='searchText'
-            type='text'
-            id='searchNameInput'
-            placeholder='Search restaurants'
-            className='search2 searchTerm'
-            onChange={this.handleChange}
-          />
-        </form>
+        <div id='restaurantSearch'>
+          <form
+            onSubmit={this.preventDefaultSubmit}
+            data-test='FormComponent'
+            className='search-restaurant-form'
+          >
+            <label className='headline-button' htmlFor='searchInput'>
+              Filter restaurant by name
+            </label>
+            <input
+              data-test='InputSearch'
+              name='searchText'
+              type='text'
+              id='searchNameInput'
+              placeholder='Search restaurants'
+              onChange={this.handleChange}
+            />
+          </form>
+        </div>
 
         <div id='restaurantContainer'>
           {this.state.restaurants.map((restaurant, index) => {
@@ -65,11 +75,9 @@ class Restaurants extends Component {
             return <ListItem key={index} {...configListItem} />;
           })}
         </div>
-        <div className='clearboth'></div>
+
         {this.state.restaurants.length === 0 && (
-          <span className='warningInfo'>
-            No restourant {this.props.text} found!
-          </span>
+          <span className='warningInfo'>No restourant found.</span>
         )}
       </Fragment>
     );
@@ -77,13 +85,9 @@ class Restaurants extends Component {
 }
 
 Restaurants.propTypes = {
-  restaurants: PropTypes.array,
+  restaurants: PropTypes.array.isRequired,
 };
 
-const mapStateToProps = (state) => ({
-  text: state.restaurantsReducer.searchName,
-});
-
-export default connect(mapStateToProps, {
+export default connect(null, {
   searchRestaurantName,
 })(Restaurants);

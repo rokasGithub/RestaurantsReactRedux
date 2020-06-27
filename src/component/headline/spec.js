@@ -15,15 +15,6 @@ describe('Headline Component', () => {
       const expectedProps = {
         header: 'Test Header',
         desc: 'Test Desc',
-        tempArr: [
-          {
-            fName: 'Test fName',
-            lName: 'Test lName',
-            email: 'test@email.com',
-            age: 23,
-            onlineStatus: false,
-          },
-        ],
       };
       const propsErr = checkProps(Headline, expectedProps);
       expect(propsErr).toBeUndefined();
